@@ -1,6 +1,7 @@
 {
   "conventionalCommits.scopes": [
     "deps",
-    "mig"
+    "mig",
+    "mod"
   ]
 }
