@@ -2,7 +2,7 @@ require('dotenv').config();
 require('express-async-errors');
 const app = require('./api');
 const { errorMiddleware } = require('./middlewares');
-const { loginRoutes } = require('./routes');
+const { loginRoutes, userRoutes } = require('./routes');
 
 // não remova a variável `API_PORT` ou o `listen`
 const port = process.env.API_PORT || 3000;
@@ -13,6 +13,7 @@ app.get('/', (_request, response) => {
 });
 
 app.use('/login', loginRoutes);
+app.use('/user', userRoutes);
 
 app.use(errorMiddleware);
 
