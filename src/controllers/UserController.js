@@ -1,6 +1,12 @@
 const jwt = require('jsonwebtoken');
 const UserService = require('../services/UserService');
 
+async function findUsers(_req, res) {
+  const users = await UserService.findUsers();
+
+  res.status(200).json(users);
+}
+
 async function createUser(req, res) {
   const newUser = await UserService.createUser(req.body);
 
@@ -11,5 +17,6 @@ async function createUser(req, res) {
 }
 
 module.exports = {
+  findUsers,
   createUser,
 };
