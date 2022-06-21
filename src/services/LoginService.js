@@ -6,7 +6,9 @@ async function login({ email, password }) {
 
   if (!user || user.password !== password) throw new createError.BadRequest('Invalid fields');
 
-  return user;
+  delete user.dataValues.password;
+
+  return user.dataValues;
 }
 
 module.exports = {
