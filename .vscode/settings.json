@@ -7,7 +7,8 @@
     "err",
     "userPost",
     "usersGet",
-    "auth"
+    "auth",
+    "userGet"
   ],
   "cSpell.words": [
     "middlewares"

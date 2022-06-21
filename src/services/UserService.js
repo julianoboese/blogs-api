@@ -7,6 +7,14 @@ async function findUsers() {
   return users;
 }
 
+async function findUser(id) {
+  const user = await User.findByPk(id, { attributes: { exclude: ['password'] } });
+
+  if (!user) throw new createError.NotFound('User does not exist');
+
+  return user;
+}
+
 async function createUser(userData) {
   const user = await User.findOne({ where: { email: userData.email } });
 
@@ -19,5 +27,6 @@ async function createUser(userData) {
 
 module.exports = {
   findUsers,
+  findUser,
   createUser,
 };
