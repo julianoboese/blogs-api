@@ -5,7 +5,8 @@
     "mod",
     "loginPost",
     "err",
-    "userPost"
+    "userPost",
+    "usersGet"
   ],
   "cSpell.words": [
     "middlewares"
