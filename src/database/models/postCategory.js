@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true
     }
+  },
+  {
+    timestamps: false
   });
 
   PostCategory.associate = (models) => {
