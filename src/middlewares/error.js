@@ -6,8 +6,15 @@ function errorMiddleware(error, _req, res, _next) {
     'string.email': 400,
   };
 
-  const { message } = error;
-  const statusCode = error.statusCode || joiTypesStatusCodes[error.type];
+  let { message } = error;
+
+  let statusCode;
+  if (message === 'jwt malformed') {
+    statusCode = 401;
+    message = 'Expired or invalid token';
+  } else {
+    statusCode = error.statusCode || joiTypesStatusCodes[error.type];
+  }
 
   res.status(statusCode).json({ message });
 }
