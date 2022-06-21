@@ -7,6 +7,14 @@ async function findUsers(_req, res) {
   res.status(200).json(users);
 }
 
+async function findUser(req, res) {
+  const { id } = req.params;
+
+  const user = await UserService.findUser(id);
+
+  res.status(200).json(user);
+}
+
 async function createUser(req, res) {
   const newUser = await UserService.createUser(req.body);
 
@@ -18,5 +26,6 @@ async function createUser(req, res) {
 
 module.exports = {
   findUsers,
+  findUser,
   createUser,
 };
