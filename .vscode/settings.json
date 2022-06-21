@@ -3,7 +3,8 @@
     "deps",
     "mig",
     "mod",
-    "loginPost"
+    "loginPost",
+    "err"
   ],
   "cSpell.words": [
     "middlewares"
