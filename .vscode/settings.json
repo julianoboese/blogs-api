@@ -2,6 +2,10 @@
   "conventionalCommits.scopes": [
     "deps",
     "mig",
-    "mod"
+    "mod",
+    "loginPost"
+  ],
+  "cSpell.words": [
+    "middlewares"
   ]
 }
