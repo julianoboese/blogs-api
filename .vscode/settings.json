@@ -4,7 +4,8 @@
     "mig",
     "mod",
     "loginPost",
-    "err"
+    "err",
+    "userPost"
   ],
   "cSpell.words": [
     "middlewares"
