@@ -1,6 +1,12 @@
 const PostService = require('../services/PostService');
 const getCurrentUser = require('../utils/currentUser');
 
+async function findPosts(_req, res) {
+  const posts = await PostService.findPosts();
+
+  res.status(200).json(posts);
+}
+
 async function createPost(req, res) {
   const token = req.headers.authorization;
 
@@ -12,5 +18,6 @@ async function createPost(req, res) {
 }
 
 module.exports = {
+  findPosts,
   createPost,
 };
