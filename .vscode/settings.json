@@ -14,7 +14,8 @@
     "postPost",
     "postsGet",
     "postGet",
-    "postPut"
+    "postPut",
+    "postDelete"
   ],
   "cSpell.words": [
     "middlewares"

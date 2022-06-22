@@ -55,9 +55,22 @@ async function updatePost(id, userId, postData) {
 
   const { title, content } = postData;
   
-  post.update({ title, content });
+  await post.update({ title, content });
 
   return post;
+}
+
+async function deletePost(id, userId) {
+  const post = await BlogPost.findByPk(id, { include: [
+    { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', through: { attributes: [] } },
+  ] });
+
+  if (!post) throw new createError.NotFound('Post does not exist');
+
+  if (userId !== post.user.id) throw new createError.Unauthorized('Unauthorized user');
+
+  await post.destroy();
 }
 
 module.exports = {
@@ -65,4 +78,5 @@ module.exports = {
   findPost,
   createPost,
   updatePost,
+  deletePost,
 };
