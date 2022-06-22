@@ -27,8 +27,13 @@ async function createUser(userData) {
   return newUser.dataValues;
 }
 
+async function deleteUser(id) {
+  await User.destroy({ where: { id } });
+}
+
 module.exports = {
   findUsers,
   findUser,
   createUser,
+  deleteUser,
 };
