@@ -1,5 +1,4 @@
 const PostService = require('../services/PostService');
-const getCurrentUser = require('../utils/currentUser');
 
 async function findPosts(_req, res) {
   const posts = await PostService.findPosts();
@@ -16,19 +15,15 @@ async function findPost(req, res) {
 }
 
 async function createPost(req, res) {
-  const token = req.headers.authorization;
+  const { id: userId } = req.user;
 
-  const { id } = getCurrentUser(token);
-
-  const newPost = await PostService.createPost({ ...req.body, userId: id });
+  const newPost = await PostService.createPost({ ...req.body, userId });
 
   res.status(201).json(newPost);
 }
 
 async function updatePost(req, res) {
-  const token = req.headers.authorization;
-
-  const { id: userId } = getCurrentUser(token);
+  const { id: userId } = req.user;
 
   const { id } = req.params;
 
@@ -38,9 +33,7 @@ async function updatePost(req, res) {
 }
 
 async function deletePost(req, res) {
-  const token = req.headers.authorization;
-
-  const { id: userId } = getCurrentUser(token);
+  const { id: userId } = req.user;
 
   const { id } = req.params;
 
