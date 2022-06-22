@@ -22,7 +22,9 @@ async function createUser(userData) {
 
   const newUser = await User.create(userData);
 
-  return newUser;
+  delete newUser.dataValues.password;
+
+  return newUser.dataValues;
 }
 
 module.exports = {
