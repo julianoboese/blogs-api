@@ -1,9 +1,18 @@
 const Sequelize = require('sequelize');
 const createError = require('http-errors');
 const config = require('../database/config/config');
-const { Category, BlogPost, PostCategory } = require('../database/models');
+const { User, Category, BlogPost, PostCategory } = require('../database/models');
 
 const sequelize = new Sequelize(config.development);
+
+async function findPosts() {
+  const posts = await BlogPost.findAll({ include: [
+    { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', through: { attributes: [] } },
+  ] });
+
+  return posts;
+}
 
 async function createPost(postData) {
   const { categoryIds } = postData;
@@ -26,5 +35,6 @@ async function createPost(postData) {
 }
 
 module.exports = {
+  findPosts,
   createPost,
 };

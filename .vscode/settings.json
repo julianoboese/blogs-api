@@ -11,7 +11,8 @@
     "userGet",
     "categPost",
     "categsGet",
-    "postPost"
+    "postPost",
+    "postsGet"
   ],
   "cSpell.words": [
     "middlewares"
