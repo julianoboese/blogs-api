@@ -23,8 +23,17 @@ async function createUser(req, res) {
   res.status(201).json({ token });
 }
 
+async function deleteUser(req, res) {
+  const { id } = req.user;
+
+  await UserService.deleteUser(id);
+
+  res.status(204).end();
+}
+
 module.exports = {
   findUsers,
   findUser,
   createUser,
+  deleteUser,
 };
