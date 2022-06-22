@@ -25,8 +25,21 @@ async function createPost(req, res) {
   res.status(201).json(newPost);
 }
 
+async function updatePost(req, res) {
+  const token = req.headers.authorization;
+
+  const { id: userId } = getCurrentUser(token);
+
+  const { id } = req.params;
+
+  const updatedPost = await PostService.updatePost(id, userId, req.body);
+
+  res.status(200).json(updatedPost);
+}
+
 module.exports = {
   findPosts,
   findPost,
   createPost,
+  updatePost,
 };
