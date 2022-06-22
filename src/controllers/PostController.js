@@ -37,9 +37,22 @@ async function updatePost(req, res) {
   res.status(200).json(updatedPost);
 }
 
+async function deletePost(req, res) {
+  const token = req.headers.authorization;
+
+  const { id: userId } = getCurrentUser(token);
+
+  const { id } = req.params;
+
+  await PostService.deletePost(id, userId);
+
+  res.status(204).end();
+}
+
 module.exports = {
   findPosts,
   findPost,
   createPost,
   updatePost,
+  deletePost,
 };
