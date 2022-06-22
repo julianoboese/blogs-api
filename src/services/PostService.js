@@ -14,6 +14,17 @@ async function findPosts() {
   return posts;
 }
 
+async function findPost(id) {
+  const post = await BlogPost.findByPk(id, { include: [
+    { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', through: { attributes: [] } },
+  ] });
+
+  if (!post) throw new createError.NotFound('Post does not exist');
+
+  return post;
+}
+
 async function createPost(postData) {
   const { categoryIds } = postData;
 
@@ -36,5 +47,6 @@ async function createPost(postData) {
 
 module.exports = {
   findPosts,
+  findPost,
   createPost,
 };
