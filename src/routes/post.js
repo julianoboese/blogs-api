@@ -6,6 +6,7 @@ const routes = express.Router();
 
 routes.use(authorization);
 routes.get('/', PostController.findPosts);
+routes.get('/:id', PostController.findPost);
 routes.post('/', postValidation, PostController.createPost);
 
 module.exports = routes;
