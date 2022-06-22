@@ -1,5 +1,3 @@
-const { NOW } = require("sequelize");
-
 module.exports = (sequelize, DataTypes) => {
   const BlogPost = sequelize.define('BlogPost', {
     id: {
@@ -12,11 +10,11 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     published: {
       type: DataTypes.DATE,
-      defaultValue: sequelize.fn(NOW),
+      defaultValue: DataTypes.NOW,
     },
     updated: {
       type: DataTypes.DATE,
-      defaultValue: sequelize.fn(NOW),
+      defaultValue: DataTypes.NOW,
     }
   },
   {
