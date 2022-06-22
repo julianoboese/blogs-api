@@ -13,7 +13,8 @@
     "categsGet",
     "postPost",
     "postsGet",
-    "postGet"
+    "postGet",
+    "postPut"
   ],
   "cSpell.words": [
     "middlewares"

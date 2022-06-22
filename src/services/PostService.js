@@ -45,8 +45,24 @@ async function createPost(postData) {
   return newPost;
 }
 
+async function updatePost(id, userId, postData) {
+  const post = await BlogPost.findByPk(id, { include: [
+    { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', through: { attributes: [] } },
+  ] });
+
+  if (userId !== post.user.id) throw new createError.Unauthorized('Unauthorized user');
+
+  const { title, content } = postData;
+  
+  post.update({ title, content });
+
+  return post;
+}
+
 module.exports = {
   findPosts,
   findPost,
   createPost,
+  updatePost,
 };
