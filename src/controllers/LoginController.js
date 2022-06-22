@@ -1,11 +1,11 @@
-const jwt = require('jsonwebtoken');
 const LoginService = require('../services/LoginService');
+const { signToken } = require('../utils/signToken');
 
 async function login(req, res) {
   const user = await LoginService.login(req.body);
 
-  const secret = process.env.JWT_SECRET;
-  const token = jwt.sign({ data: user }, secret);
+  const token = signToken(user);
+  console.log(token);
 
   res.status(200).json({ token });
 }
