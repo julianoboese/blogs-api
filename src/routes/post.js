@@ -6,6 +6,7 @@ const routes = express.Router();
 
 routes.use(authorization);
 routes.get('/', PostController.findPosts);
+routes.get('/search', PostController.searchPosts);
 routes.get('/:id', PostController.findPost);
 routes.post('/', createPostValidation, PostController.createPost);
 routes.put('/:id', updatePostValidation, PostController.updatePost);
