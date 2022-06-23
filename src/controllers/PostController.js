@@ -14,6 +14,14 @@ async function findPost(req, res) {
   res.status(200).json(post);
 }
 
+async function searchPosts(req, res) {
+  const { q } = req.query;
+
+  const posts = q ? await PostService.searchPosts(q) : await PostService.findPosts();
+
+  res.status(200).json(posts);
+}
+
 async function createPost(req, res) {
   const { id: userId } = req.user;
 
@@ -45,6 +53,7 @@ async function deletePost(req, res) {
 module.exports = {
   findPosts,
   findPost,
+  searchPosts,
   createPost,
   updatePost,
   deletePost,
