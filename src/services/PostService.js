@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const createError = require('http-errors');
+const { Op } = require('sequelize');
 const config = require('../database/config/config');
 const { User, Category, BlogPost, PostCategory } = require('../database/models');
 
@@ -23,6 +24,19 @@ async function findPost(id) {
   if (!post) throw new createError.NotFound('Post does not exist');
 
   return post;
+}
+
+async function searchPosts(searchTerm) {
+  const posts = await BlogPost.findAll({ include: [
+    { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', through: { attributes: [] } },
+  ],
+  where: { [Op.or]: [
+    { title: { [Op.substring]: searchTerm } },
+    { content: { [Op.substring]: searchTerm } },
+  ] } });
+
+  return posts;
 }
 
 async function createPost(postData) {
@@ -76,6 +90,7 @@ async function deletePost(id, userId) {
 module.exports = {
   findPosts,
   findPost,
+  searchPosts,
   createPost,
   updatePost,
   deletePost,
