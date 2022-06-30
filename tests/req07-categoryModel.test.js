@@ -6,9 +6,7 @@ const {
   checkPropertyExists 
 } = require('./assets/helper');
 
-const { requirements } = require('../.trybe/requirements.json');
-
-describe(requirements[6].description, () => {
+describe("7 - Crie o modelo 'Category' em 'src/database/models/category.js' com as propriedades corretas", () => {
   const modelPath = resolve(__dirname, '..', 'src', 'database', 'models', 'category.js');
   
   checkModelFile(modelPath);

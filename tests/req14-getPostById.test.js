@@ -3,9 +3,7 @@ const shell = require('shelljs');
 
 const { sequelize: sequelizeCli, apiURL: url } = require('./assets/constants');
 
-const { requirements } = require('../.trybe/requirements.json');
-
-describe(requirements[13].description, () => {
+describe("14 - Sua aplicação deve ter o endpoint GET `post/:id`", () => {
   beforeAll(() => {
     shell.exec([
       sequelizeCli.drop,

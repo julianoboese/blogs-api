@@ -4,7 +4,7 @@ const { Op } = require('sequelize');
 const config = require('../database/config/config');
 const { User, Category, BlogPost, PostCategory } = require('../database/models');
 
-const sequelize = new Sequelize(config.development);
+const sequelize = new Sequelize(config[process.env.NODE_ENV]);
 
 async function findPosts() {
   const posts = await BlogPost.findAll({ include: [

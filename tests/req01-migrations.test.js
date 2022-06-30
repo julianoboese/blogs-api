@@ -5,9 +5,7 @@ const sequelizeConfig = require('../src/database/config/config');
 const { sequelize: sequelizeCli } = require('./assets/constants');
 const queries = require('./assets/queries');
 
-const { requirements } = require('../.trybe/requirements.json');
-
-describe(requirements[0].description, () => {
+describe("1 - Crie migrations para as entidades User, Categories, BlogPosts e PostCategories", () => {
   let database;
 
   beforeAll(() => {

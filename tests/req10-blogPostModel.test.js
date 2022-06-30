@@ -7,9 +7,7 @@ const {
   checkSimpleAssociation
 } = require('./assets/helper');
 
-const { requirements } = require('../.trybe/requirements.json');
-
-describe(requirements[9].description, () => {
+describe("10 - Crie o modelo 'BlogPost' em 'src/database/models/blogPost.js' com as propriedades e associações corretas", () => {
   const modelPath = resolve(__dirname, '..', 'src', 'database', 'models', 'blogPost.js');
   const foreignModelPath = resolve(__dirname, '..', 'src', 'database', 'models', 'user.js');
   

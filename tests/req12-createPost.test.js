@@ -4,12 +4,11 @@ const shell = require('shelljs');
 const Sequelize = require('sequelize');
 
 const { sequelize: sequelizeCli, apiURL: url } = require('./assets/constants');
-const { requirements } = require('../.trybe/requirements.json');
 const sequelizeConfig = require('../src/database/config/config');
 
 const sequelize = new Sequelize(sequelizeConfig.test);
 
-describe(requirements[11].description, () => {
+describe("12 - Sua aplicação deve ter o endpoint POST `/post`", () => {
   beforeAll(() => {
     shell.exec([
       sequelizeCli.drop,

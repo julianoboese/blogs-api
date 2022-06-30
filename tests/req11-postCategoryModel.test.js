@@ -7,9 +7,7 @@ const {
   checkThroughAssociation
 } = require('./assets/helper');
 
-const { requirements } = require('../.trybe/requirements.json');
-
-describe(requirements[10].description, () => {
+describe("11 - Crie o modelo 'PostCategory' em 'src/database/models/postCategory.js' com as propriedades e associações corretas", () => {
   const modelPath = resolve(__dirname, '..', 'src', 'database', 'models', 'postCategory.js');
   
   checkModelFile(modelPath);

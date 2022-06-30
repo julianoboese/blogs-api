@@ -5,9 +5,7 @@ require('dotenv/config');
 
 const { sequelize: sequelizeCli, apiURL: url } = require('./assets/constants');
 
-const { requirements } = require('../.trybe/requirements.json');
-
-describe(requirements[2].description, () => {
+describe("3 - Sua aplicação deve ter o endpoint POST `/login`", () => {
   beforeAll(() => {
     shell.exec([
       sequelizeCli.drop,
