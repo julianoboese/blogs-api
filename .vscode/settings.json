@@ -17,7 +17,8 @@
     "postPut",
     "postDelete",
     "userDelete",
-    "postsSearch"
+    "postsSearch",
+    "db"
   ],
   "cSpell.words": [
     "middlewares"
