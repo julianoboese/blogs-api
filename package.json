@@ -1,0 +1,44 @@
+{
+  "name": "blogs-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianoboese/blogs-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julianoboese/blogs-api/issues"
+  },
+  "homepage": "https://github.com/julianoboese/blogs-api#readme",
+  "dependencies": {
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "express-async-errors": "^3.1.1",
+    "http-errors": "^2.0.0",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "2.1.0",
+    "sequelize": "6.3.4",
+    "shelljs": "0.8.4"
+  },
+  "devDependencies": {
+    "frisby": "2.1.2",
+    "jest": "26.0.1",
+    "jest-each": "^28.0.1",
+    "nodemon": "^2.0.15",
+    "sequelize-cli": "6.2.0",
+    "sequelize-jest-helpers": "^1.0.2",
+    "wait-on": "^6.0.1"
+  }
+}
