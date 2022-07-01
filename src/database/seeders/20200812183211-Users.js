@@ -1,6 +1,7 @@
 module.exports = {
   up: async (queryInterface, _Sequelize) => {
-    await queryInterface.bulkInsert('Users',
+    await queryInterface.bulkInsert(
+      'Users',
       [{
         id: 1,
         displayName: 'Lewis Hamilton',
@@ -15,7 +16,10 @@ module.exports = {
         password: '123456',
         image: 'https://sportbuzz.uol.com.br/media/_versions/gettyimages-52491565_widelg.jpg',
       },
-      ], { timestamps: false });
+      ],
+
+      { timestamps: false },
+    );
   },
 
   down: async (queryInterface, _Sequelize) => {

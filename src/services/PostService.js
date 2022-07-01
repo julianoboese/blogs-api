@@ -52,7 +52,7 @@ async function createPost(postData) {
     categoryIds.forEach(async (category) => {
       await PostCategory.create({ postId: post.id, categoryId: category });
     });
-      
+
     return post;
   });
 
@@ -68,7 +68,7 @@ async function updatePost(id, userId, postData) {
   if (userId !== post.user.id) throw new createError.Unauthorized('Unauthorized user');
 
   const { title, content } = postData;
-  
+
   await post.update({ title, content });
 
   return post;
