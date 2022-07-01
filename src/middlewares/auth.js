@@ -8,7 +8,7 @@ function authorization(req, _res, next) {
 
   const secret = process.env.JWT_SECRET;
 
-  const decoded = jwt.verify(token, secret);
+  const decoded = jwt.verify(token.replace('Bearer ', ''), secret);
 
   req.user = decoded.data;
 

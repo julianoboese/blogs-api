@@ -341,9 +341,9 @@
     },
     "/user": {
       "get": {
-        "security": {
+        "security": [{
           "bearerAuth": []
-        },
+        }],
         "summary": "Find all users",
         "description": "Returns all catalogued users",
         "tags": ["users"],
@@ -398,9 +398,9 @@
     },
     "/user/{id}": {
       "get": {
-        "security": {
+        "security": [{
           "bearerAuth": []
-        },
+        }],
         "summary": "Find user by ID",
         "description": "Returns user based on ID",
         "tags": ["users"],
@@ -434,9 +434,9 @@
     },
     "/user/me": {
       "delete": {
-        "security": {
+        "security": [{
           "bearerAuth": []
-        },
+        }],
         "summary": "Delete user",
         "description": "Delete logged user",
         "tags": ["users"],
@@ -460,9 +460,9 @@
     },
     "/categories": {
       "get": {
-        "security": {
+        "security": [{
           "bearerAuth": []
-        },
+        }],
         "summary": "Find all categories",
         "description": "Returns all categories",
         "tags": ["categories"],
@@ -483,9 +483,9 @@
         }
       },
       "post": {
-        "security": {
+        "security": [{
           "bearerAuth": []
-        },
+        }],
         "summary": "Add new category",
         "description": "Create a new category with the input data",
         "tags": ["categories"],
@@ -520,9 +520,9 @@
     },
     "/post": {
       "get": {
-        "security": {
+        "security": [{
           "bearerAuth": []
-        },
+        }],
         "summary": "Find all posts",
         "description": "Returns all posts",
         "tags": ["posts"],
@@ -543,9 +543,9 @@
         }
       },
       "post": {
-        "security": {
+        "security": [{
           "bearerAuth": []
-        },
+        }],
         "summary": "Add new post",
         "description": "Create a new post with the input data",
         "tags": ["posts"],
@@ -580,9 +580,9 @@
     },
     "/post/{id}": {
       "get": {
-        "security": {
+        "security": [{
           "bearerAuth": []
-        },
+        }],
         "summary": "Find post by ID",
         "description": "Returns post based on ID",
         "tags": ["posts"],
@@ -614,9 +614,9 @@
         }
       },
       "put": {
-        "security": {
+        "security": [{
           "bearerAuth": []
-        },
+        }],
         "summary": "Update post",
         "description": "Update post with the selected ID",
         "tags": ["posts"],
@@ -657,9 +657,9 @@
         }
       },
       "delete": {
-        "security": {
+        "security": [{
           "bearerAuth": []
-        },
+        }],
         "summary": "Delete post",
         "description": "Delete post with the selected ID",
         "tags": ["posts"],
@@ -686,9 +686,9 @@
     },
     "/post/search": {
       "get": {
-        "security": {
+        "security": [{
           "bearerAuth": []
-        },
+        }],
         "summary": "Find posts by search term",
         "description": "Returns posts whose title or content contains the search term",
         "tags": ["posts"],
